@@ -45,7 +45,7 @@ int main()
 			filename = strcat(mydir, filename);*/
 			sprintf(filename, "%s%s", dir, mydir);
 			FILE * fwrr = fopen(filename, "ab");
-			for (unsigned int i = 0; i < Size; i++)
+			for (unsigned int i = 0; i < Size-16; i++)
 			{
 				unsigned char b;
 				fread(&b, sizeof(char), 1, arc);
