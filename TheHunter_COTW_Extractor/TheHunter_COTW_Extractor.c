@@ -18,10 +18,22 @@ int main()
 		char * c = malloc(512);
 		scanf("%s", c);
 		FILE *arc = fopen(c, "rb");
+		if (arc == NULL)
+		{
+			printf(".ARC file not found/cannot be opened!\n");
+			system("pause");
+			return -1;
+		}
 		char * p = malloc(strlen(c));
 		strcpy(p, c);
 		strncpy(p + (strlen(c) - 3), tabc, 3);
 		FILE *tab = fopen(p, "rb");
+		if (tab == NULL)
+		{
+			printf(".TAB file not found/cannot be opened. It has to be in the same folder as ARC!\n");
+			system("pause");
+			return -1;
+		}
 		char * dir = malloc(strlen(c));
 		strcpy(dir, c);
 		strncpy(dir+(strlen(dir)-4), "ext\\", 4);
